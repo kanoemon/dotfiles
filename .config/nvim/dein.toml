@@ -2,6 +2,44 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    set laststatus=2
+    set t_Co=256
+    let g:lightline = {
+        \ 'colorscheme': 'solarized',
+        \ 'separator': { 'left': '⮀', 'right': '⮂' },
+        \ 'subseparator': { 'left': '⮁', 'right': '⮃' },
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component': {
+        \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+        \   'lineinfo': '⭡ %3l:%-2v',
+        \ },
+        \ 'component_function': {
+        \   'readonly': 'LightlineReadonly',
+        \   'fugitive': 'LightlineFugitive'
+        \ },
+        \ 'component_visible_condition': {
+        \   'readonly': '(&filetype!="help"&& &readonly)',
+        \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+        \ }
+        \ }
+    function! LightlineReadonly()
+        return &readonly ? '⭤' : ''
+    endfunction
+    function! LightlineFugitive()
+        if exists('*fugitive#head')
+            let branch = fugitive#head()
+            return branch !=# '' ? '⭠ '.branch : ''
+        endif
+        return ''
+    endfunction
+'''
+
+[[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
