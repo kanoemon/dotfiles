@@ -30,3 +30,8 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set visualbell t_vb=
 set noerrorbells
 
+" colors
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+set background=dark
