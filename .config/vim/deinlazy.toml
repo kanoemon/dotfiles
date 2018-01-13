@@ -50,16 +50,27 @@ let g:quickrun_config = {
     \}
 '''
 
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertCharPre'
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#on_event = 'InsertCharPre'
+
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
+#on_event = 'InsertCharPre'
+#on_ft = 'snippet'
+#hook_add = '''
+#    let g:neosnippet#enable_snipmate_compatibility = 1
+#    let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME . '/nvim/snippets'
+#'''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-hook_add = '''
-    let g:neosnippet#enable_snipmate_compatibility = 1
-    let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME . '/nvim/snippets'
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['phpcd', 'omni']
 '''
 
+[[plugins]]
+repo = 'lvht/phpcd.vim'

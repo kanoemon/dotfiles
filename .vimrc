@@ -1,10 +1,13 @@
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIMRUNTIME
+
+
 " load dein
 if &compatible
     set nocompatible
 endif
 
-let s:config_dir = expand($XDG_CONFIG_HOME . '/nvim')
-let s:dein_dir = expand($XDG_CACHE_HOME . '/nvim/dein')
+let s:config_dir = expand($XDG_CONFIG_HOME . '/vim')
+let s:dein_dir = expand($XDG_CACHE_HOME . '/vim/dein')
 if !isdirectory(s:dein_dir . '/repos/github.com/Shougo/dein.vim')
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
 endif
@@ -27,11 +30,11 @@ endif
 
 " load *.vim
 function! s:source_rc(path)
-	let abspath = resolve(expand(s:config_dir . '/' . a:path))
-	if filereadable(abspath)
-		execute 'source' abspath
-		return
-	endif
+    let abspath = resolve(expand(s:config_dir . '/' . a:path))
+    if filereadable(abspath)
+        execute 'source' abspath
+        return
+    endif
 endfunction
 call s:source_rc('encoding.vim')
 call s:source_rc('options.vim')
