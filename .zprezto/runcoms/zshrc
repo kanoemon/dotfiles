@@ -1,0 +1,25 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+fpath=(path/to/zsh-completions/src $fpath)
+
+alias vi="vim"
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g RB='`git branch -r | peco --prompt "Remote Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias g='cd $(ghq list -p | peco)'
+alias ctags="`brew --prefix`/bin/ctags"
+alias pssh='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
+eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-dark)
+if [ -f ~/.proxy ] ; then
+	. ~/.proxy
+fi
+
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
