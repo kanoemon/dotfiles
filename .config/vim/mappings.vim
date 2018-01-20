@@ -3,6 +3,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 " ctags
 nnoremap <Space>c g<C-]> 
+nnoremap <f5> :!ctags -R<CR>
+autocmd BufWritePost * call system("ctags -R")
 
 " tab
 nnoremap [t gt
