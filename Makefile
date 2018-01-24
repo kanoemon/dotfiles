@@ -12,3 +12,4 @@ deploy: ## Create symlink to home directory
 test: ## Test dotfiles and init scripts
 	@echo '==> Test dotfiles and init scripts.'
 	@echo ''
+	@$(foreach val, $(DOTFILES), diff -r $(abspath $(val)) $(HOME)/$(val);)
