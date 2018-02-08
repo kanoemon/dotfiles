@@ -1,4 +1,5 @@
-# カーソル移動
+# vim
+## カーソル移動
 - `h` : 左に移動
 - `j` : 下に移動
 - `k` : 上に移動
@@ -6,3 +7,17 @@
 - `H` : move to top of screen
 - `M` : move of middle of screen
 - `L` : move to bottom of screen
+- `w` : 単語の先頭へジャンプ(区切り文字まで)
+- `W` : 単語の先頭へジャンプ(区切り文字を含めない)
+- `e` : 単語の最後にジャンプ(区切り文字まで)
+- `E` : 単語の最後にジャンプ(区切り文字を含めない)
+- `b` : 単語の先頭へ戻る(区切り文字まで)
+- `B` : 単語の先頭へ戻る(区切り文字を含めない)
+- `%` : move to matching character:('()', '{}', '[]')
+- `0` : 先頭に移動
+- `^` : 行の最初の文字へ移動
+- `$` : 行の終わりへ移動
+- `g_`  : jump to the last non-blank character of the line
+- `gg`  : go to the first line of the document
+- `G`   : 最終行へ移動
+- `5G`  : 5行目に移動
