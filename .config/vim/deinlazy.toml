@@ -71,3 +71,11 @@ hook_add = '''
     let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME . '/vim/snippets'
 '''
 
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_ft = ['c', 'cpp']
+hook_add = '''
+    let g:tagbar_width = 30
+    nmap     <Space>tb [tagbar]
+    nnoremap <silent>[tagbar] :TagbarToggle<CR>
+'''
