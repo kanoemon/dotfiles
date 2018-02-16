@@ -1,0 +1,11 @@
+[color]
+	ui = auto
+[ghq]
+	root = ~/git
+[http]
+	sslVerify = false
+[alias]
+	st = status
+	co = checkout
+	b = branch
+    today = log --oneline --since='12 hour ago'
