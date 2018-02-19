@@ -8,4 +8,6 @@
 	st = status
 	co = checkout
 	b = branch
-    today = log --oneline --since='12 hour ago'
+	today = log --oneline --since='12 hour ago'
+	refresh= !git fetch origin && git remote prune origin
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
