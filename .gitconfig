@@ -10,4 +10,5 @@
 	b = branch
 	today = log --oneline --since='12 hour ago'
 	refresh= !git fetch origin && git remote prune origin
+	pre = git archive --format=tar.gz --prefix=upfiles/ HEAD `git diff develop --diff-filter=ACMR --name-only` -o upfiles.tar.gz
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
