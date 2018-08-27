@@ -7,6 +7,7 @@ set noswapfile
 set ambiwidth=double
 set wildmenu
 set hidden
+set nrformats=
 
 " indent
 set tabstop=4
