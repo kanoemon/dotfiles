@@ -54,3 +54,8 @@ hook_add = '''
     set splitbelow
     let g:cheat#cheat_sheet_path = $XDG_CONFIG_HOME . '/vim/cheat/cheatsheet.md'
 '''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+depends = 'unite.vim'

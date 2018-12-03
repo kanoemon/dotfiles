@@ -12,6 +12,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = ['Denite']
+if = 'has("python3")'
 hook_add = '''
     let g:python3_host_prog = expand('/usr/local/bin/python')
     let g:unite_enable_start_insert=0
@@ -29,6 +30,15 @@ call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+if = '!has("python3")'
+on_cmd = ['Unite']
+hook_add = '''
+    nmap <Space>d [unite]
+    nnoremap <silent> [unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 '''
 
 [[plugins]]
